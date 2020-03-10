@@ -12,6 +12,6 @@
 	<BrowserHeight></BrowserHeight>
 	<BrowserWidth></BrowserWidth>
 	<AddCookies>true</AddCookies>
-	<CookiesLocation>"Path to cookies"</CookiesLocation>
+	<CookiesLocation>"Path to cookies "</CookiesLocation>
 </BrowserDetails>
 </Configuration>

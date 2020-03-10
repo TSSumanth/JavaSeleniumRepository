@@ -56,7 +56,7 @@ public class ReadDataFromXML {
 			System.out.println(negchek);  //value if available
 		}
 		
-		//Similarly we can use this for other Elements as well
+		//Similarly we can use this for other Elements as well 
 		
 		
 	}
