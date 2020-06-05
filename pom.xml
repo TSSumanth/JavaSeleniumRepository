@@ -21,9 +21,7 @@
 			  <artifactId>testng</artifactId>
 			  <version>6.8</version>
 			  <scope>compile</scope>
-			</dependency>
-			
-		
+			</dependency>	
 			
 			<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 			<dependency>
@@ -45,9 +43,21 @@
 			    <artifactId>extentreports</artifactId>
 			    <version>4.0.0</version>
 			</dependency>
-
-			
-
   
   </dependencies>
+  
+  <build>
+		<plugins>
+			<plugin>
+				  	<groupId>org.codehaus.mojo</groupId>
+  					<artifactId>exec-maven-plugin</artifactId>
+  					<version>1.4.0</version>
+  					<configuration>
+  						<mainClass>Executor.TestExecutor</mainClass>
+  					</configuration>
+  			</plugin>
+		</plugins>
+    <sourceDirectory>${basedir}/src</sourceDirectory> 
+	</build>
+  
 </project>

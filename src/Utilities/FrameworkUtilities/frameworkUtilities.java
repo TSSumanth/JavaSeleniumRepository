@@ -1,4 +1,4 @@
-package FrameworkUtilities;
+package Utilities.FrameworkUtilities;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.aventstack.extentreports.Status;
 
-import ReportGenerator.Reportor;
+import Utilities.ReportGenerator.Reportor;
 
 public class frameworkUtilities extends Reportor{
 
@@ -79,8 +79,11 @@ public class frameworkUtilities extends Reportor{
 	}
 	
 	public static void logReport(String Message, String status, boolean takeScreenshot) {
+		System.out.println("log report method siwth screenshot");
 		if(status.toLowerCase().equals("info")) {
+			System.out.println("info method starting");
 			logReport.log(Status.INFO, Message);
+			System.out.println("info method done");
 			if(takeScreenshot){
 				takeScreehshot();
 			}
@@ -90,7 +93,9 @@ public class frameworkUtilities extends Reportor{
 				takeScreehshot();
 			}
 		}else if(status.toLowerCase().equals("pass")) {
+			System.out.println("pass method starting");
 			logReport.log(Status.PASS, Message);
+			System.out.println("pass method done");
 			if(takeScreenshot){
 				takeScreehshot();
 			}

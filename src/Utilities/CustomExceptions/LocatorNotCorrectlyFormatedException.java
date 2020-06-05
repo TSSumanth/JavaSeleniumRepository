@@ -1,4 +1,4 @@
-package CustomExceptions;
+package Utilities.CustomExceptions;
 
 public class LocatorNotCorrectlyFormatedException extends RuntimeException {
 

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import FrameworkUtilities.frameworkUtilities;
-import ReusableLibrary.UI_Components;
+import Utilities.FrameworkUtilities.frameworkUtilities;
+import Utilities.ReusableLibrary.UI_Components;
 
 public class HomePage extends frameworkUtilities{
 
@@ -26,15 +26,14 @@ public class HomePage extends frameworkUtilities{
 		launchBrowser("FIREFOX");
 		launchApllication(" http://automationpractice.com/index.php");
 		HomePage mhp = new HomePage();
-		mhp.clickOnRegisterLink();
+		mhp.clickOnTshirtsLink();
 		closeBrowser();
 		
 //		CreateTestCaseInReport("Test 2 - headless chrome" );
 //		launchBrowser("headlesschrome");
 //		launchApllication(" http://automationpractice.com/index.php");
 //		mhp.clickOnRegisterLink();
-//		closeBrowser();
-//		
+//		closeBrowser();		
 //		addSystemInfo(info);
 		System.out.println("completed");
 		System.out.println("test");
@@ -42,10 +41,10 @@ public class HomePage extends frameworkUtilities{
 
 	}
 	
-	public final String Nav_Register_link = "xpath_//a[text()='T-shirts']";
+	public final String Nav_TSHIRTS_link = "xpath_//a[text()='T-shirts']";
 	
-	public void clickOnRegisterLink() {
-		By locator = UIC.getLocator(Nav_Register_link);
+	public void clickOnTshirtsLink() {
+		By locator = UIC.getLocator(Nav_TSHIRTS_link);
 		try {
 			WebElement element = UIC.getVisibleElement(locator);
 			UIC.clickOnElement(element);

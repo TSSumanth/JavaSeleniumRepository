@@ -1,4 +1,4 @@
-package ReportGenerator;
+package Utilities.ReportGenerator;
 
 import java.io.File;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ public class Reportor {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		createHTMLDocument("D:\\Java\\Selenium Results\\sample.html");
+		createHTMLDocument("D:\\Java\\Selenium Results\\new.html");
 		HashMap<String,String> info = new HashMap<String,String>();
 		
 		info.put("URL","http://www.newtours.demoaut.com/");
@@ -47,6 +47,7 @@ public class Reportor {
 		logReport("Sampl eingor", "pass");
 		logReport("Sampl eingor", "pass");
 		logReport("Sampl eingor", "pass");
+		extent.flush();	
 	}
 	
 	public static void createHTMLDocument(String ReportLocation) {

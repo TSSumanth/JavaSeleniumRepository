@@ -1,4 +1,4 @@
-package ReusableLibrary;
+package Utilities.ReusableLibrary;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -10,8 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import CustomExceptions.LocatorNotCorrectlyFormatedException;
-import FrameworkUtilities.frameworkUtilities;
+import Utilities.CustomExceptions.LocatorNotCorrectlyFormatedException;
+import Utilities.FrameworkUtilities.frameworkUtilities;
 
 public final class UI_Components extends frameworkUtilities {
 
