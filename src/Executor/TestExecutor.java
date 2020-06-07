@@ -17,7 +17,7 @@ public class TestExecutor extends frameworkUtilities {
 		info.put("Runt Type","RRF Run");	
 	
 		CreateTestCaseInReport("Test 1");
-//		addSystemInfo(info);
+		addSystemInfo(info);
 		launchBrowser("chrome");
 		launchApllication("http://automationpractice.com/index.php");
 		logReport("Sampl eingor", "info",true);
