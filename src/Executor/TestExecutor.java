@@ -30,6 +30,8 @@ public class TestExecutor extends frameworkUtilities {
 		
 		System.out.println("completed");
 		System.out.println("test");
+		
+		throw new RuntimeException("test buil failure by throwing excepton");
 	}
 
 }
