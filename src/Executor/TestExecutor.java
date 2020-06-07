@@ -21,6 +21,7 @@ public class TestExecutor extends frameworkUtilities {
 		launchBrowser("chrome");
 		launchApllication("http://automationpractice.com/index.php");
 		logReport("Sampl eingor", "info",true);
+		logReport("Sampl eingor", "fail",true);
 		HomePage mhp = new HomePage();
 		mhp.clickOnTshirtsLink();
 		TShirtsPage tst = new TShirtsPage();
