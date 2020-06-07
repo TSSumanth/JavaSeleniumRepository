@@ -17,17 +17,14 @@ public class TestExecutor extends frameworkUtilities {
 		info.put("Runt Type","RRF Run");	
 	
 		CreateTestCaseInReport("Test 1");
-		
-		logReport("Sampl eingor", "pass");
-		logReport("Sampl eingor", "fail");
-		logReport("Sampl eingor", "pass");
-		launchBrowser("FIREFOX");
-		launchApllication(" http://automationpractice.com/index.php");
+//		addSystemInfo(info);
+		launchBrowser("chrome");
+		launchApllication("http://automationpractice.com/index.php");
 		logReport("Sampl eingor", "info",true);
 		HomePage mhp = new HomePage();
-//		mhp.clickOnTshirtsLink();
+		mhp.clickOnTshirtsLink();
 		TShirtsPage tst = new TShirtsPage();
-//		tst.clickOnListView();
+		tst.clickOnListView();
 		closeBrowser();
 		
 		System.out.println("completed");

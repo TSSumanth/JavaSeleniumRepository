@@ -30,12 +30,14 @@ public class frameworkUtilities extends Reportor{
 	public static void launchBrowser(String BrowserName){
 		if(BrowserName.toUpperCase().equals("FIREFOX"))
 		{
+			System.out.println("inside firefox launch block");
 			System.setProperty("webdriver.gecko.driver",  ProjectDirectory+"//jars//geckodriver.exe");
 			driver=new FirefoxDriver();
 			logReport("firefox started","info");
 		}
 		else if(BrowserName.toUpperCase().equals("CHROME"))
 		{
+			System.out.println("inside chrome launch block");
 			System.setProperty("webdriver.chrome.driver", ProjectDirectory+"//jars//chromedriver.exe");
 			driver=new ChromeDriver();
 			logReport("chrome started","info");
