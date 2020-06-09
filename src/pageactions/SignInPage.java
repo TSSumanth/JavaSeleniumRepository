@@ -27,7 +27,7 @@ public class SignInPage  extends frameworkUtilities{
 	}
 	
 	public void setValueToPasswordInputField(String value) {
-		By locator = UIC.getLocator(emailAddress_textBox);
+		By locator = UIC.getLocator(password_textBox);
 		try {
 			WebElement element = UIC.getElement(locator);
 			UIC.setValueToElement(element,value);
