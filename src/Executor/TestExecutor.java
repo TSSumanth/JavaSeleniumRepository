@@ -22,8 +22,6 @@ public class TestExecutor extends frameworkUtilities {
 		addSystemInfo(info);
 		launchBrowser("chrome");
 		launchApllication("http://automationpractice.com/index.php");
-		logReport("Sampl eingor", "info",true);
-		logReport("Sampl eingor", "fail",true);
 		HomePage mhp = new HomePage();
 		mhp.clickOnTshirtsLink();
 		TShirtsPage tst = new TShirtsPage();
@@ -31,7 +29,7 @@ public class TestExecutor extends frameworkUtilities {
 		closeBrowser();
 		
 		CreateTestCaseInReport("Test 2" );
-		launchBrowser("headlesschrome");
+		launchBrowser("chrome");
 		
 		launchApllication(" http://automationpractice.com/index.php");
 		mhp.clickOnSignInLink();
