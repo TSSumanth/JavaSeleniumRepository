@@ -15,8 +15,7 @@
   </properties>
 
   <dependencies>
-  
-  			<dependency>
+    			<dependency>
 			  <groupId>org.testng</groupId>
 			  <artifactId>testng</artifactId>
 			  <version>6.8</version>
@@ -56,6 +55,7 @@
   					<version>1.4.0</version>
   					<configuration>
   						<mainClass>Executor.TestExecutor</mainClass>
+						 <cleanupDaemonThreads>false</cleanupDaemonThreads>
   					</configuration>
   			</plugin>
 		</plugins>

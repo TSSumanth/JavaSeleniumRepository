@@ -23,6 +23,7 @@ public class TestExecutor extends frameworkUtilities {
 		launchBrowser("chrome");
 		launchApllication("http://automationpractice.com/index.php");
 		logReport("Sampl eingor", "info",true);
+		logReport("Sampl eingor", "fail",true);
 		HomePage mhp = new HomePage();
 		mhp.clickOnTshirtsLink();
 		TShirtsPage tst = new TShirtsPage();
@@ -43,6 +44,12 @@ public class TestExecutor extends frameworkUtilities {
 		
 		System.out.println("completed");
 		System.out.println("test");
+		try{
+			throw new RuntimeException("test buil failure by throwing excepton");
+		}catch(Exception e)
+		{
+			System.out.println("runtime error handled");
+		}
 	}
 
 }
