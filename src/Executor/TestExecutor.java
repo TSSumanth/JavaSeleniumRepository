@@ -22,7 +22,7 @@ public class TestExecutor extends frameworkUtilities {
 		addSystemInfo(info);
 		launchBrowser("chrome");
 		launchApllication("http://automationpractice.com/index.php");
-		logReport("testing the build by failing a test","fail");
+//		logReport("testing the build by failing a test","fail");
 		HomePage mhp = new HomePage();
 		mhp.clickOnTshirtsLink();
 		TShirtsPage tst = new TShirtsPage();
