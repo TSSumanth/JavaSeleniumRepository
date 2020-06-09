@@ -22,6 +22,7 @@ public class TestExecutor extends frameworkUtilities {
 		addSystemInfo(info);
 		launchBrowser("chrome");
 		launchApllication("http://automationpractice.com/index.php");
+		logReport("testing the build by failing a test","fail");
 		HomePage mhp = new HomePage();
 		mhp.clickOnTshirtsLink();
 		TShirtsPage tst = new TShirtsPage();
@@ -40,9 +41,16 @@ public class TestExecutor extends frameworkUtilities {
 		SignInPageFunctions sin = new SignInPageFunctions();
 		sin.signin();
 		closeBrowser();		
-		
+		if(currentSuiteStatus.equals("Failed")) {
+			overallSuiteStatus = "Failed";
+			currentSuiteStatus="";
+		}
 		System.out.println("completed");
 		if(overallSuiteStatus.equals("Failed")) {
+			System.out.println("Failed tests are present in the execution");
+			for(String failedtest:failedTests) {
+				System.out.println(failedtest);
+			}
 			throw new RuntimeException("Overall Suite Status is Failed");
 		}
 	}

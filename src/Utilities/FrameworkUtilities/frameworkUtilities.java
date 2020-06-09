@@ -106,6 +106,9 @@ public class frameworkUtilities extends Reportor{
 			if(takeScreenshot) {
 				takeScreehshot();
 			}
+			logReport.log(Status.FAIL, Message);
+			failedTests.add(currentTestName);
+			currentSuiteStatus = "Failed";
 		}
 		extent.flush();		
 	}
