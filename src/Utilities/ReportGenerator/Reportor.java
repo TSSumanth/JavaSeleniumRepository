@@ -2,6 +2,7 @@ package Utilities.ReportGenerator;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -17,6 +18,10 @@ public class Reportor {
 	private static ExtentHtmlReporter reporter;
 	protected static ExtentReports extent;
 	protected static ExtentTest logReport;
+	public static String overallSuiteStatus = "Passed";
+	public static String currentSuiteStatus = "Passed";
+	public static Set<String> failedTests = new HashSet<String>(); 
+	public static String currentTestName="";
 	
 
 	public static void main(String[] args) {
@@ -43,7 +48,6 @@ public class Reportor {
 		logReport("Sampl eingor", "pass");
 		addSystemInfo(info);
 		System.out.println("completed");
-		
 		logReport("Sampl eingor", "pass");
 		logReport("Sampl eingor", "pass");
 		logReport("Sampl eingor", "pass");
@@ -65,7 +69,6 @@ public class Reportor {
 		Iterator itr = keyset.iterator();
 		
 		while(itr.hasNext()) {
-			System.out.println("test");
 			Map.Entry me = (Map.Entry) itr.next();
 			String key = (String) me.getKey();
 			extent.setSystemInfo(key, info.get(key));
@@ -80,9 +83,9 @@ public class Reportor {
 		extent.flush();
 	}
 	
-	public static void CreateTestCaseInReport(String TestCaseName) {
-	
-		logReport = extent.createTest(TestCaseName);		
+	public static void CreateTestCaseInReport(String TestCaseName) {	
+		logReport = extent.createTest(TestCaseName);
+		currentTestName = TestCaseName;
 		extent.flush();
 	}
 	
@@ -95,11 +98,10 @@ public class Reportor {
 			logReport.log(Status.PASS, Message);
 		}else if(status.toLowerCase().equals("fail")) {
 			logReport.log(Status.FAIL, Message);
+			failedTests.add(currentTestName);
+			currentSuiteStatus = "Failed";
 		}
 		extent.flush();		
 	}
-	
-	
-	
 	
 }

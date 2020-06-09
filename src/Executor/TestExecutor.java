@@ -27,7 +27,10 @@ public class TestExecutor extends frameworkUtilities {
 		TShirtsPage tst = new TShirtsPage();
 		tst.clickOnListView();
 		closeBrowser();
-		
+		if(currentSuiteStatus.equals("Failed")) {
+			overallSuiteStatus = "Failed";
+			currentSuiteStatus="";
+		}
 		CreateTestCaseInReport("Test 2" );
 		launchBrowser("chrome");
 		
@@ -36,17 +39,11 @@ public class TestExecutor extends frameworkUtilities {
 		
 		SignInPageFunctions sin = new SignInPageFunctions();
 		sin.signin();
-		
 		closeBrowser();		
-		addSystemInfo(info);
 		
 		System.out.println("completed");
-		System.out.println("test");
-		try{
-			throw new RuntimeException("test buil failure by throwing excepton");
-		}catch(Exception e)
-		{
-			System.out.println("runtime error handled");
+		if(overallSuiteStatus.equals("Failed")) {
+			throw new RuntimeException("Overall Suite Status is Failed");
 		}
 	}
 

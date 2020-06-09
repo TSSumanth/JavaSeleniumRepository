@@ -21,8 +21,8 @@ public class SignInPage  extends frameworkUtilities{
 			UIC.setValueToElement(element,value);
 		}
 		catch(Exception e) {
-			logReport("Exception while clicking on element: ", "fail");
-			throw new RuntimeException("Element Not clickable Exception");
+			logReport("Exception while setting value on email address", "fail");
+			throw new RuntimeException("Not able to set value on email address");
 		}
 	}
 	
@@ -33,8 +33,8 @@ public class SignInPage  extends frameworkUtilities{
 			UIC.setValueToElement(element,value);
 		}
 		catch(Exception e) {
-			logReport("Exception while clicking on element: ", "fail");
-			throw new RuntimeException("Element Not clickable Exception");
+			logReport("Exception while setting value on password", "fail");
+			throw new RuntimeException("Not able to set value on password");
 		}
 	}
 	
