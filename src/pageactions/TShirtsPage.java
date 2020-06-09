@@ -9,7 +9,7 @@ import Utilities.ReusableLibrary.UI_Components;
 public class TShirtsPage extends frameworkUtilities{
 
 	UI_Components UIC = new UI_Components(); 
-	public final static String listview = "xpath_//li[@class='display-title' and text()='View']/following-sibling::li[@id='list']";
+	public final String listview = "xpath_//li[@class='display-title' and text()='View']/following-sibling::li[@id='list']";
 	
 	public void clickOnListView() {
 		By locator = UIC.getLocator(listview);

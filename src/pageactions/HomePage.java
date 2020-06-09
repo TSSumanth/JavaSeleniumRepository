@@ -41,7 +41,8 @@ public class HomePage extends frameworkUtilities{
 
 	}
 	
-	public final String Nav_TSHIRTS_link = "xpath_//a[text()='T-shirts']";
+	public final String Nav_TSHIRTS_link = "xpath_//a[text()='T-shirts']";	
+	public final String Nav_SignIn_Link = "xpath_//a[@title = 'Log in to your customer account']";
 	
 	public void clickOnTshirtsLink() {
 		By locator = UIC.getLocator(Nav_TSHIRTS_link);
@@ -50,10 +51,26 @@ public class HomePage extends frameworkUtilities{
 			UIC.clickOnElement(element);
 		}
 		catch(Exception e) {
-			logReport("Exception while clicking on element: ", "fail");
+			logReport("Tshirt link is not present in UI", "fail");
 			throw new RuntimeException("Element Not clickable Exception");
 		}
 	}
 	
+	public void clickOnSignInLink() {
+		By locator = UIC.getLocator(Nav_SignIn_Link);
+		try {
+			boolean presence = UIC.waitForElement(locator, true);
+			if(presence) {
+				WebElement element = UIC.getElement(locator,30);
+				UIC.clickOnElement(element);
+			}else {
+				logReport("Sign in button is not present in UI", "fail");
+			}
+		}
+		catch(Exception e) {
+			logReport("Exception while clicking on element: ", "fail");
+			throw new RuntimeException("Element Not clickable Exception");
+		}
+	}
 
 }

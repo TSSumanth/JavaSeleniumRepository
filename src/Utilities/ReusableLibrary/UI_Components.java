@@ -112,7 +112,7 @@ public final class UI_Components extends frameworkUtilities {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeinseconds);
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-			logReport("Element is not present: "+ locator.toString(), "info");
+			logReport("Element is present: "+ locator.toString(), "info");
 			return true;
 		}catch(NoSuchElementException NE) {
 			logReport("Element is not present: "+ locator.toString(), "info", true);
@@ -139,7 +139,7 @@ public final class UI_Components extends frameworkUtilities {
 	}	
 	
 	public WebElement getVisibleElement(By locator) {
-		WebElement visbileelement = null;
+		WebElement visibleelement = null;
 		try {
 			List<WebElement> elements = driver.findElements(locator);
 			for(WebElement element:elements) {
@@ -154,10 +154,10 @@ public final class UI_Components extends frameworkUtilities {
 			}
 		}catch(Exception e) {
 			logReport("No Elements are visible for locator: "+ locator.toString(), "info");
-			return visbileelement;
+			return visibleelement;
 		}
 		logReport("No Elements are visible for locator: "+ locator.toString(), "info");
-		return visbileelement;
+		return visibleelement;
 	}
 	
 	public boolean checkElementIsClickable(By locator) {
@@ -213,6 +213,29 @@ public final class UI_Components extends frameworkUtilities {
 			logReport("clicked on element.", "pass", true);
 		}catch(Exception e) {
 			logReport("Unable to click on element. Error occured, "+e.getMessage(), "fail", true);
+			logReport(e.getLocalizedMessage(),"info");
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+	
+	public void setValueToElement(By locator,String value) {
+		try {
+			WebElement element = this.getElement(locator);
+			element.clear();
+			element.sendKeys(value);
+		}catch(Exception e) {
+			logReport("Unable to set value to element. Error occured, "+e.getMessage(), "fail", true);
+			logReport(e.getLocalizedMessage(),"info");
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+	
+	public void setValueToElement(WebElement element,String value) {
+		try {
+			element.clear();
+			element.sendKeys(value);
+		}catch(Exception e) {
+			logReport("Unable to set value to element. Error occured, "+e.getMessage(), "fail", true);
 			logReport(e.getLocalizedMessage(),"info");
 			throw new RuntimeException(e.getMessage());
 		}

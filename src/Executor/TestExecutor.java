@@ -3,7 +3,9 @@ package Executor;
 import java.util.HashMap;
 import Utilities.FrameworkUtilities.frameworkUtilities;
 import pageactions.HomePage;
+import pageactions.SignInPage;
 import pageactions.TShirtsPage;
+import pagefunctions.SignInPageFunctions;
 
 public class TestExecutor extends frameworkUtilities {
 
@@ -13,11 +15,11 @@ public class TestExecutor extends frameworkUtilities {
 		HashMap<String,String> info = new HashMap<String,String>();
 		
 		info.put("URL"," http://automationpractice.com/index.php");
-		info.put("Screenshot Location","Location Details");
+		info.put("Screenshot Location",screenshotsLocation);
 		info.put("Runt Type","RRF Run");	
 	
 		CreateTestCaseInReport("Test 1");
-//		addSystemInfo(info);
+		addSystemInfo(info);
 		launchBrowser("chrome");
 		launchApllication("http://automationpractice.com/index.php");
 		logReport("Sampl eingor", "info",true);
@@ -26,6 +28,18 @@ public class TestExecutor extends frameworkUtilities {
 		TShirtsPage tst = new TShirtsPage();
 		tst.clickOnListView();
 		closeBrowser();
+		
+		CreateTestCaseInReport("Test 2" );
+		launchBrowser("headlesschrome");
+		
+		launchApllication(" http://automationpractice.com/index.php");
+		mhp.clickOnSignInLink();
+		
+		SignInPageFunctions sin = new SignInPageFunctions();
+		sin.signin();
+		
+		closeBrowser();		
+		addSystemInfo(info);
 		
 		System.out.println("completed");
 		System.out.println("test");
