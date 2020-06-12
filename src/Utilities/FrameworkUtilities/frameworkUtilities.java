@@ -2,9 +2,13 @@ package Utilities.FrameworkUtilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -19,14 +23,39 @@ import Utilities.ReportGenerator.Reportor;
 public class frameworkUtilities extends Reportor{
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+		generateExecutionId();
 	}
 	public static WebDriver driver; 
+	public static String resultsLocation = "D:\\Java\\Selenium Results";
 	public static int screenshot_count=1; 
 	public final static String ProjectDirectory = System.getProperty("user.dir");
 	public static String screenshotsLocation = "";
-
+	public static String suiteName="";
+	public static String testCaseName="";
+	public static Sheet RunManagerMainSheet ;
+	public static XSSFWorkbook RunManagerWorkBook;
+	public static int totalNumberOfTests;
+	public static int currentTestNumber;
+	public static String ExecutionId;
+	public static HashMap<String,String> testDetails = new HashMap<String,String>();
+	
+	public static void generateExecutionId() {
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		ExecutionId = timeStamp.replace(".", "-");
+	}
+	
+	public static void createResultsLocation() {
+		resultsLocation = resultsLocation +"\\"+ExecutionId;
+		boolean bool = new File(resultsLocation).mkdirs();
+		//Creating the directory
+//	      boolean bool = file.mkdir();
+	      if(bool){
+	         System.out.println("Results directory created successfully.");
+	      }else{
+	         System.out.println("Results directory isn’t created.");
+	      }
+	}
+	
 	public static void launchBrowser(String BrowserName){
 		if(BrowserName.toUpperCase().equals("FIREFOX"))
 		{
@@ -51,8 +80,7 @@ public class frameworkUtilities extends Reportor{
 		    driver = new ChromeDriver(chromeOptions);
 		    logReport("headless chrome started","info");
 		}
-		driver.manage().window().maximize();
-		
+		driver.manage().window().maximize();		
 	}
 	
 	public static void launchApllication(String URL) {
@@ -112,5 +140,8 @@ public class frameworkUtilities extends Reportor{
 		}
 		extent.flush();		
 	}
-
+	
+	
+	
+	
 }
